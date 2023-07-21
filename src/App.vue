@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <router-view />
+    <Newsletter v-if="$route.path != '/contact'" />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "@/components/Header.vue";
+import Newsletter from "@/components/Newsletter.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    Newsletter,
+    Footer,
+  },
+};
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Exo+2");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: #f8f8f8 !important;
+  font-family: "Exo 2", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
